@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissionais</title>
+    <style>
+        table, th, td
+        {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Profissionais</h1>
+    <a href="/">Menu</a>
+    <a href="/agendamentos">Agendamentos</a>
+    <br>
+    <br>
+    <form th:action="@{/salvarprofissional}" method="POST" id="formProfissional">
+        <label>Nome:<input type="text" placeholder="Digite o nome" name="nome" required/>
+        <label>Salário:<input type="number" name="salario" min="1" required/>
+        <label>Porcentagem de Lucro:<input type="number" name="porcentagemlucro" min="1" required/>     
+    <input type="submit" value="Salvar"/>
+    <input type="reset"  value="Cancelar"/>
+    </form>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Salário</th>
+            <th>Porcentagem de Lucro</th>
+            <th>Detalhes</th>
+            <th>Editar</th>
+        </tr>
+        <tr th:each="profissional : ${profissionais}">
+            <td th:text="${profissional.id}"></td>
+            <td th:text="${profissional.nome}"></td>
+            <td th:text="${profissional.salario}"></td>
+            <td th:text="${profissional.porcentagemlucro}"></td>
+            <td><a th:href="@{'/detalhesprofissional/' + ${profissional.id}}">Detalhes</a></td>
+            <td><a th:href="@{'/editarProfissional?id=' + ${profissional.id}}">Editar</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>

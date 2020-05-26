@@ -3,11 +3,13 @@ package br.facens.provafinal.servico;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.facens.provafinal.entidade.Agendamento;
 import br.facens.provafinal.entidade.Servico;
 import br.facens.provafinal.repositorio.ServicoRepositorio;
 
+@Service
 public class ServicoServico {
     
     @Autowired

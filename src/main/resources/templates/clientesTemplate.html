@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <style>
+        table, th, td
+        {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Clientes</h1>
+    <a href="/">Menu</a>
+    <a href="/agendamentos">Agendamentos</a>
+    <br>
+    <br>
+    <form th:action="@{/salvarcliente}" method="POST" id="formCliente">
+        <label>Nome:<input type="text" placeholder="Digite o nome" name="nome" required/>
+        <label>E-mail:<input type="email" name="email" required/>
+        <label>Endereço:<input type="text" placeholder="Digite o endereço" name="endereco" required/>
+        <label>Número da Residência:<input type="number" name="numero" min="1" required/>    
+    <input type="submit" value="Salvar"/>
+    <input type="reset"  value="Cancelar"/>
+    </form>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Endereço</th>
+            <th>Número da Residência</th>
+            <th>Detalhes</th>
+            <th>Editar</th>
+        </tr>
+        <tr th:each="cliente : ${clientes}">
+            <td th:text="${cliente.id}"></td>
+            <td th:text="${cliente.nome}"></td>
+            <td th:text="${cliente.email}"></td>
+            <td th:text="${cliente.endereco}"></td>
+            <td th:text="${cliente.numero}"></td>
+            <td><a th:href="@{'/detalhescliente/' + ${cliente.id}}">Detalhes</a></td>
+            <td><a th:href="@{'/editarCliente?id=' + ${cliente.id}}">Editar</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
