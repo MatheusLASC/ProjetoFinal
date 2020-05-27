@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissional</title>
+    
+    <style>
+        table, th, td {
+          border: 1px solid aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Editar Profissional</h1>    
+    <a href="/">Menu</a>
+    <a href="/profissionais">Voltar</a>
+    <br>
+    <br>
+    <form th:action="@{/updateprofissional}" th:object="${profissional}" method="POST" id="formProfissional">
+      
+        <label>ID:</label> <span th:text="${profissional.id}"></span>
+        <br>
+        <input type="hidden" th:value="${profissional.id}" th:field="${profissional.id}" name="id" />
+      
+        <label>Nome:</label>
+        <input type="text" placeholder="Digite o nome" th:value="${profissional.nome}" name="nome" required/>
+        <br>  
+        <label>Salário:</label>
+        <input type="number" th:value="${profissional.salario}" name="salario" min="1" required/>
+        <br> 
+        <label>Porcentagem de Lucro:</label>
+        <input type="number" th:value="${profissional.porcentagemlucro}" name="porcentagemlucro" min="1" required/>
+        <br> 
+        <input type="submit" value="Salvar" />
+        <input type="reset"  value="Cancelar"/>
+    </form>
+    
+</body>
+
+</html>

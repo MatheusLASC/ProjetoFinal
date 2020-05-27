@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Cliente</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid orangered;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes Editora</h1>
+    <a href="/">Menu</a>
+    <a href="/clientes">Clientes</a>
+    <br>
+    <br>
+    <b>Id Cliente: </b> <span th:text="${cliente.id}"></span>
+    <br><b>Nome: </b> <span th:text="${cliente.nome}"></span>
+    <br><b>E-mail: </b> <span th:text="${cliente.email}"></span>
+    <br><b>Endereço: </b> <span th:text="${cliente.endereco}"></span>
+    <br><b>Número da Residência: </b> <span th:text="${cliente.numero}"></span>
+    <br>
+    <br>
+    Agendamento:
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Profissional</th>
+        </tr>
+       
+        <tr th:each="agendamento : ${cliente.agendamentos}">
+            <td th:text="${agendamento.id}"></td>
+            <td th:text="${agendamento.data}"></td>
+            <td th:text="${agendamento.hora}"></td>
+            <td th:text="${agendamento.profissional?.nome}"></td>     
+        </tr>
+    </table>
+</body>
+</html>

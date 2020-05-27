@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+    
+    <style>
+        table, th, td {
+          border: 1px solid aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Editar Cliente</h1>    
+    <a href="/">Menu</a>
+    <a href="/clientes">Voltar</a>
+    <br>
+    <br>
+    <form th:action="@{/updatecliente}" th:object="${cliente}" method="POST" id="formCliente">
+      
+        <label>ID:</label> <span th:text="${cliente.id}"></span>
+        <br>
+        <input type="hidden" th:value="${cliente.id}" th:field="${cliente.id}" name="id" />
+      
+        <label>Nome:</label>
+        <input type="text" placeholder="Digite o nome" th:value="${cliente.nome}" name="nome" required/>
+        <br>  
+        <label>E-mail:</label>
+        <input type="email" placeholder="Digite o e-mail" th:value="${cliente.email}" name="email" required/>
+        <br> 
+        <label>Endereço:</label>
+        <input type="text" placeholder="Digite o endereço" th:value="${cliente.endereco}" name="endereco" required/>
+        <br> 
+        <label>Número da Residência:</label>
+        <input type="number" th:value="${cliente.numero}" name="numero" min="1" required/>  
+        <br>  
+        <input type="submit" value="Salvar" />
+        <input type="reset"  value="Cancelar"/>
+    </form>
+    
+</body>
+
+</html>

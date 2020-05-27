@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Profissional</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes Profissional</h1>
+    <a href="/">Menu</a>
+    <a href="/profissionais">Profissionais</a>
+    <br>
+    <br>
+    <b>Id Cliente: </b> <span th:text="${profissional.id}"></span>
+    <br><b>Nome: </b> <span th:text="${profissional.nome}"></span>
+    <br><b>Salário: </b> <span th:text="${profissional.salario}"></span>
+    <br><b>Porcentagem de Lucro: </b> <span th:text="${profissional.porcentagemlucro}"></span>
+    <br>
+    <br>
+    Agendamento:
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Cliente</th>
+        </tr>
+       
+        <tr th:each="agendamento : ${profissional.agendamentos}">
+            <td th:text="${agendamento.id}"></td>
+            <td th:text="${agendamento.data}"></td>
+            <td th:text="${agendamento.hora}"></td>
+            <td th:text="${agendamento.cliente?.nome}"></td>     
+        </tr>
+    </table>
+</body>
+</html>
