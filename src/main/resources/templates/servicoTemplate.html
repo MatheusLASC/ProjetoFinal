@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços</title>
+    <style>
+        table, th, td
+        {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Serviços</h1>
+    <a href="/">Menu</a>
+    <a href="/agendamentos">Agendamentos</a>
+    <br>
+    <br>
+    <form th:action="@{/salvarservico}" method="POST" id="formServico">
+        <label>Tipo:<input type="text" placeholder="Digite o tipo do serviço" name="tipo" required/>
+        <label>Preço:<input type="number" name="preco" min="1" required/>  
+    <input type="submit" value="Salvar"/>
+    <input type="reset"  value="Cancelar"/>
+    </form>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Tipo</th>
+            <th>Preço</th>
+            <th>Detalhes</th>
+            <th>Remover</th>
+            <th>Editar</th>
+        </tr>
+        <tr th:each="servico : ${servicos}">
+            <td th:text="${servico.id}"></td>
+            <td th:text="${servico.tipo}"></td>
+            <td th:text="${servico.preco}"></td>
+            <td> <a th:href="@{'/detalhesservico/' + ${servico.id}}">Detalhes</a></td>
+            <td> <a th:href="@{'/removerServico?id=' + ${servico.id}}">Remover</a></td>
+            <td> <a th:href="@{'/editarServico?id=' + ${servico.id}}">Editar</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
