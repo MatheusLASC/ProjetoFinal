@@ -19,7 +19,7 @@
     <br>
     <form th:action="@{/salvarservico}" method="POST" id="formServico">
         <label>Tipo:<input type="text" placeholder="Digite o tipo do serviço" name="tipo" required/>
-        <label>Preço:<input type="number" name="preco" min="1" required/>  
+        <label>Preço:<input type="number" name="preco" step="0.01" min="0.01" required/>  
     <input type="submit" value="Salvar"/>
     <input type="reset"  value="Cancelar"/>
     </form>

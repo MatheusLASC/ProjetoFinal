@@ -19,15 +19,69 @@ public class AgendamentoServico {
         return ar.findAll();
     }
 
-    public void salvar(Agendamento agendamento){
+    public void adiciona (Agendamento agendamento)
+    {
         ar.save(agendamento);
     }
-    
-    public void update(Agendamento agendamento){
-        // recupera dados da associação
-        List<Servico> aux = ar.findById(agendamento.getId()).get().getServicos();
-            agendamento.setServicos(aux);
+
+    public boolean salvar(Agendamento agendamento){
+        
+        List<Agendamento> agendamentos = ar.findAll();
+        boolean v = false;
+
+        for (Agendamento auxAgendamento : agendamentos) {
+            if(agendamento.getData().equals(auxAgendamento.getData()))
+            {
+                if(agendamento.getProfissional().getId()==auxAgendamento.getProfissional().getId() || agendamento.getCliente().getId()==auxAgendamento.getCliente().getId())
+                {
+                    v=true;
+                }
+            }
+        }
+
+        if(v==false)
+        {
             ar.save(agendamento);
+            return true;
+        }
+        else
+        {
+            return  false;
+        }
+        
+    }
+    
+    public boolean update(Agendamento agendamento){
+
+        List<Agendamento> agendamentos = ar.findAll();
+        Agendamento aux = ar.findById(agendamento.getId()).get();
+         agendamentos.remove(aux); //para não analisar o mesmo objeto
+         boolean v = false;
+        
+        
+         for (Agendamento auxAgendamento : agendamentos) {
+            if(agendamento.getData().equals(auxAgendamento.getData()))
+            {
+                if(agendamento.getProfissional().getId()==auxAgendamento.getProfissional().getId() || agendamento.getCliente().getId()==auxAgendamento.getCliente().getId())
+                {
+                    v=true;
+                }
+            }
+        }
+        
+        if(v==false)
+        {
+              // recupera dados da associação
+        List<Servico> auxs = ar.findById(agendamento.getId()).get().getServicos();
+        agendamento.setServicos(auxs);
+            ar.save(agendamento);
+            return true;
+        }
+        else
+        {
+            return  false;
+        }
+        
     }
 
     public Agendamento getAgendamentobyID(int id)

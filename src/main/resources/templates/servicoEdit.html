@@ -29,7 +29,7 @@
         <input type="text" placeholder="Digite o tipo do serviço" th:value="${servico.tipo}" name="tipo" required/>
         <br>  
         <label>Preço:</label>
-        <input type="number" th:value="${servico.preco}" name="preco" min="1" required/>
+        <input type="number" th:value="${servico.preco}" name="preco" step="0.01" min="0.01" required/>
         <br>  
         <br>
         <input type="submit" value="Salvar" />

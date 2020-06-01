@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h1>Detalhes Editora</h1>
+    <h1>Detalhes Cliente</h1>
     <a href="/">Menu</a>
     <a href="/clientes">Clientes</a>
     <br>
@@ -29,15 +29,13 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>Data</th>
-            <th>Horário</th>
+            <th>Data e Hora</th>
             <th>Profissional</th>
         </tr>
        
         <tr th:each="agendamento : ${cliente.agendamentos}">
             <td th:text="${agendamento.id}"></td>
             <td th:text="${agendamento.data}"></td>
-            <td th:text="${agendamento.hora}"></td>
             <td th:text="${agendamento.profissional?.nome}"></td>     
         </tr>
     </table>

@@ -26,6 +26,13 @@ public class ProfissionalControle {
         return mv;
     }
 
+    @GetMapping("/erroremoverP")
+    public ModelAndView Erro()
+    {
+     
+        ModelAndView mv = new ModelAndView("erroRemoverTemplate");
+        return mv;
+    }
 
     @GetMapping("/detalhesprofissional/{id}")
     public ModelAndView getProfissionalDetalhes(@PathVariable(name="id") Integer id) {
@@ -77,4 +84,21 @@ public class ProfissionalControle {
             }    
        
         }
+    @GetMapping("/removerProfissional")
+    public String removerProfissional(@RequestParam Integer id)
+     {
+           boolean v; 
+           Profissional profissional = ps.getProfissionalbyID(id);
+           
+           v = ps.remover(profissional);
+           if(v==false)
+           {
+               return "redirect:/erroremoverP";
+           }
+           else
+           {
+               return "redirect:/profissionais";
+           }
+            
+        }    
 }

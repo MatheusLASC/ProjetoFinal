@@ -35,6 +35,7 @@
             <th>Endereço</th>
             <th>Número da Residência</th>
             <th>Detalhes</th>
+            <th>Remover</th>
             <th>Editar</th>
         </tr>
         <tr th:each="cliente : ${clientes}">
@@ -44,6 +45,7 @@
             <td th:text="${cliente.endereco}"></td>
             <td th:text="${cliente.numero}"></td>
             <td><a th:href="@{'/detalhescliente/' + ${cliente.id}}">Detalhes</a></td>
+            <td> <a th:href="@{'/removerCliente?id=' + ${cliente.id}}">Remover</a></td>
             <td><a th:href="@{'/editarCliente?id=' + ${cliente.id}}">Editar</a></td>
         </tr>
     </table>

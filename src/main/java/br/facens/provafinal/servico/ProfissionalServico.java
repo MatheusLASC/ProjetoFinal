@@ -36,8 +36,18 @@ public class ProfissionalServico {
         return pr.findById(id).get();
     }
 
-    public void remover(Profissional profissional) {
-        pr.delete(profissional);
+    public boolean remover(Profissional profissional) {
+        if(profissional.getAgendamentos().size()>0)
+        {
+            return false;
+        }
+        else
+        {
+            pr.delete(profissional);
+            return true;
+        }
+
+        
 	}
 
 }

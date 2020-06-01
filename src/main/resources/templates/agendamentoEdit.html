@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    
+    <style>
+        table, th, td {
+          border: 1px solid yellowgreen;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Editar Agendamento</h1>    
+    <a href="/">Menu</a>
+    <a href="/agendamentos">Voltar</a>
+    <br>
+    <br>
+    <form th:action="@{/updateagendamento}" th:object="${agendamento}" method="POST" id="formAgendamento">
+      
+        <label>ID:</label> <span th:text="${agendamento.id}"></span>
+        <br>
+        <input type="hidden" th:value="${agendamento.id}" th:field="${agendamento.id}" name="id" />
+      
+        <label>Data e Hora:</label>
+        <input type="datetime-local" th:value="${agendamento.data}" name="data" required/>
+        <br>  
+        <label>Cliente:</label> 
+        <select th:field="${agendamento.cliente}" required>
+            <option value="">Escolha o Cliente</option>
+            <option th:each="cliente : ${clientes}"
+                    th:value="${cliente.id}"
+                    th:text="${cliente.nome}">
+            </option>
+        </select>
+        <br>  
+        <label>Profissional:</label> 
+        <select th:field="${agendamento.profissional}" required>
+            <option value="">Escolha o Profissional</option>
+            <option th:each="profissional : ${profissionais}"
+                    th:value="${profissional.id}"
+                    th:text="${profissional.nome}">
+            </option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Salvar" />
+        <input type="reset"  value="Cancelar"/>
+</body>
+
+</html>

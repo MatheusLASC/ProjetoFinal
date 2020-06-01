@@ -36,7 +36,16 @@ public class ClienteServico {
         return cr.findById(id).get();
     }
 
-    public void remover(Cliente cliente) {
-        cr.delete(cliente);
+    public boolean remover(Cliente cliente) {
+        if(cliente.getAgendamentos().size()>0)
+        {
+            return false;
+        }
+        else
+        {
+            cr.delete(cliente);
+            return true;
+        }
+
 	}
 }

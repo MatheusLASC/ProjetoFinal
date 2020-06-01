@@ -1,7 +1,6 @@
 package br.facens.provafinal.entidade;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,7 +21,7 @@ private static final long serialVersionUID = 1L;
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int id;
 private String data;
-private Time hora;
+
 
 @ManyToMany
 @JoinTable
@@ -57,14 +56,6 @@ public void setData(String data) {
     this.data = data;
 }
 
-public Time getHora() {
-    return hora;
-}
-
-public void setHora(Time hora) {
-    this.hora = hora;
-}
-
 public List<Servico> getServicos() {
     return servicos;
 }
@@ -89,14 +80,12 @@ public void setCliente(Cliente cliente) {
     this.cliente = cliente;
 }
 
-
 @Override
 public int hashCode() {
     final int prime = 31;
     int result = 1;
     result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
     result = prime * result + ((data == null) ? 0 : data.hashCode());
-    result = prime * result + ((hora == null) ? 0 : hora.hashCode());
     result = prime * result + id;
     result = prime * result + ((profissional == null) ? 0 : profissional.hashCode());
     result = prime * result + ((servicos == null) ? 0 : servicos.hashCode());
@@ -122,11 +111,6 @@ public boolean equals(Object obj) {
             return false;
     } else if (!data.equals(other.data))
         return false;
-    if (hora == null) {
-        if (other.hora != null)
-            return false;
-    } else if (!hora.equals(other.hora))
-        return false;
     if (id != other.id)
         return false;
     if (profissional == null) {
@@ -144,8 +128,9 @@ public boolean equals(Object obj) {
 
 @Override
 public String toString() {
-    return "Agendamento [data=" + data + ", hora=" + hora + ", id=" + id + "]";
+    return "Agendamento [data=" + data + ", id=" + id + "]";
 }
+
 
 
 }

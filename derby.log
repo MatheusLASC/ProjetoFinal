@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed May 27 23:08:59 BRT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-590a-2edd-000005ade210 
+Mon Jun 01 19:23:58 BRT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-71fb-fad4-0000069c39e0 
 on database directory C:\Users\mathe\OneDrive\Área de Trabalho\Faculdade\5° Semestre\POOII\Lab\provafinal\dbbarbearia with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
 Loaded from file:/C:/Users/mathe/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
@@ -12,9 +12,9 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Wed May 27 23:34:13 BRT 2020:
-Shutting down instance a816c00e-0172-590a-2edd-000005ade210 on database directory C:\Users\mathe\OneDrive\Área de Trabalho\Faculdade\5° Semestre\POOII\Lab\provafinal\dbbarbearia with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
-Wed May 27 23:34:13 BRT 2020 Thread[Thread-205,5,main] Cleanup action starting
+Mon Jun 01 19:25:21 BRT 2020:
+Shutting down instance a816c00e-0172-71fb-fad4-0000069c39e0 on database directory C:\Users\mathe\OneDrive\Área de Trabalho\Faculdade\5° Semestre\POOII\Lab\provafinal\dbbarbearia with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Mon Jun 01 19:25:21 BRT 2020 Thread[Thread-204,5,main] Cleanup action starting
 ERROR XBM0I: Directory dbbarbearia cannot be removed.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
@@ -34,7 +34,7 @@ ERROR XBM0I: Directory dbbarbearia cannot be removed.
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
 	at java.lang.Thread.run(Thread.java:745)
 Cleanup action completed
-Wed May 27 23:34:13 BRT 2020 Thread[Thread-205,5,main] Cleanup action starting
+Mon Jun 01 19:25:21 BRT 2020 Thread[Thread-204,5,main] Cleanup action starting
 ERROR XBM0I: Directory dbbarbearia cannot be removed.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
@@ -55,8 +55,8 @@ ERROR XBM0I: Directory dbbarbearia cannot be removed.
 	at java.lang.Thread.run(Thread.java:745)
 Cleanup action completed
 ----------------------------------------------------------------
-Wed May 27 23:34:15 BRT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 4b6f00c8-0172-590a-2edd-000005ade210 
+Mon Jun 01 19:25:23 BRT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance c99d403a-0172-71fb-fad4-0000069c39e0 
 on database directory C:\Users\mathe\OneDrive\Área de Trabalho\Faculdade\5° Semestre\POOII\Lab\provafinal\dbbarbearia with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
 Loaded from file:/C:/Users/mathe/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation

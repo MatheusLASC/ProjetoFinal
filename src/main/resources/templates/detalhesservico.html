@@ -29,8 +29,7 @@
     <table>
         <tr>
             <th>Id</th>
-            <th>Data</th>
-            <th>Hora</th>
+            <th>Data e Hora</th>
             <th>Cliente</th>
             <th>Profissional</th>
         </tr>
@@ -38,7 +37,6 @@
         <tr th:each="agendamento : ${servico.agendamentos}">
             <td th:text="${agendamento.id}"></td>
             <td th:text="${agendamento.data}"></td>
-            <td th:text="${agendamento.hora}"></td>
             <td th:text="${agendamento.cliente?.nome}"></td>
             <td th:text="${agendamento.profissional?.nome}"></td>
         </tr>
@@ -49,10 +47,10 @@
     <form th:action="@{/associarServicoAgendamento(idservico=${servico.id})}" method="POST">
         <label><b>Agendamentos:</b></label>
         <select name="id" required>
-            <option value="">Escolha o livro</option>
+            <option value="">Escolha o Agendamento</option>
             <option th:each="agendamento : ${agendamentos}"
                         th:value="${agendamento.id}"
-                        th:text="${agendamento.data + '!' + agendamento.hora}">
+                        th:text="${agendamento.data + ' | ' + agendamento.cliente?.nome + ' | ' + agendamento.profissional?.nome}">
             </option>
         </select>
         <input type="submit" value="Adicionar agendamento ao Serviço" />

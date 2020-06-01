@@ -25,6 +25,14 @@ public class ClienteControle {
         return mv;
     }
 
+    @GetMapping("/erroremoverC")
+    public ModelAndView Erro()
+    {
+     
+        ModelAndView mv = new ModelAndView("erroRemoverTemplate");
+        return mv;
+    }
+
     @GetMapping("/detalhescliente/{id}")
     public ModelAndView getClienteDetalhes(@PathVariable(name="id") Integer id) {
        Cliente cliente = cs.getClientebyID(id);
@@ -76,6 +84,22 @@ public class ClienteControle {
            
         }
 
-        // Não removo cliente,pois o agendamento ficaria sem cliente. Não faz sentido na minha modelagem
+        @GetMapping("/removerCliente")
+        public String removerProfissional(@RequestParam Integer id)
+         {
+               boolean v; 
+               Cliente cliente = cs.getClientebyID(id);
+               
+               v = cs.remover(cliente);
+               if(v==false)
+               {
+                   return "redirect:/erroremoverC";
+               }
+               else
+               {
+                    return "redirect:/clientes";
+               }
+                
+            }    
     
 }
